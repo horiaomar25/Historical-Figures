@@ -1,18 +1,19 @@
-// wikipediaService.js
+// WikiData.js
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const WikiData = () => {
+const WikiData = ({ searchQuery }) => {
   const [figures, setFigures] = useState([]);
 
   const fetchData = async () => {
-    const name = 'Martin Luther King'; // Set the name you want to query
+    if (!searchQuery) return; // Don't fetch if there's no search query
+
     const apiKey = process.env.NEXT_PUBLIC_API_KEY; // Set your API key
 
     try {
       const response = await fetch(
-        `https://api.api-ninjas.com/v1/historicalfigures?name=${name}`,
+        `https://api.api-ninjas.com/v1/historicalfigures?name=${searchQuery}`,
         {
           method: 'GET',
           headers: {
@@ -58,12 +59,10 @@ const WikiData = () => {
       return null;
     }
   };
-  
+
   useEffect(() => {
     fetchData();
-  }, []); // Run the fetch when the component mounts
-
-  console.log(figures); // Log the figures state to check if data is there
+  }, [searchQuery]); // Fetch data when searchQuery changes
 
   return (
     <div>
@@ -71,23 +70,18 @@ const WikiData = () => {
       <ul>
         {figures.map((figure, index) => (
           <li key={index} className='border-2 border-black m-8  w-1/5 '>
-           
-            
-       
-      
             <ul>
               {figure.wikipediaImageUrl && (
-              <div>
-                <Image src={figure.wikipediaImageUrl} alt={figure.name} width={500} height={200} />
-              </div>  )}
+                <div>
+                  <Image src={figure.wikipediaImageUrl} alt={figure.name} width={500} height={200} />
+                </div>
+              )}
               <h2 className='text-2xl bg-red-800 w-full'>{figure.name}</h2>
             </ul>
-            
             <button>Read More</button>
           </li>
         ))}
       </ul>
-    
     </div>
   );
 };
