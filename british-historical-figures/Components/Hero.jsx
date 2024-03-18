@@ -5,10 +5,11 @@ import Image from 'next/image'
 const Hero = () => {
   return (
     <section>
-      <div className='border border-white w-full h-96 flex items-center justify-center font-extrabold  '>
+      <div className='w-full h-96 flex items-center justify-center font-extrabold border border-black  '>
     
       
-      <h1 className='text-white text-center text-2xl '>Historical Figures</h1>
+      <h1 className='text-black text-center text-4xl '>Historical Figures</h1>
+     
       
       </div>
       
