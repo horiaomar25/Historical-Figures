@@ -1,10 +1,16 @@
 "use client"
-import Navigation from "@/Components/Navigation"
+
+import Hero from "@/Components/Hero"
+import About from "@/Components/About"
 
 
 export default function Home() {
   
  return(
-  <Navigation/>
+    <>
+  
+  <Hero/>
+  <About/>
+  </>
  )
 }
