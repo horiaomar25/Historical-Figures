@@ -44,7 +44,7 @@ const WikiData = ({ searchQuery }) => {
     }
   };
 
-  const fetchWikipediaImage = async (name, thumbWidth = 300) => {
+  const fetchWikipediaImage = async (name, thumbWidth = 300, thumbHeight = 200) => {
     try {
       const response = await fetch(
         `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&pithumbsize=${thumbWidth}&titles=${name}&origin=*`
@@ -67,25 +67,24 @@ const WikiData = ({ searchQuery }) => {
   return (
     <div>
       <h1>Historical Figures</h1>
-      <ul>
+      <div className="flex flex-wrap">
         {figures.map((figure, index) => (
-          <li key={index} className='border-2 border-black m-8  w-1/5 '>
-            <ul>
-              {figure.wikipediaImageUrl && (
-                <div>
-                  <Image src={figure.wikipediaImageUrl} alt={figure.name} width={500} height={200} />
-                </div>
-              )}
-              <h2 className='text-2xl bg-red-800 w-full'>{figure.name}</h2>
-            </ul>
-            <button>Read More</button>
-          </li>
+          <div key={index} className='border-2 border-black m-8 w-1/5 flex flex-col'>
+            {figure.wikipediaImageUrl && (
+              <div className="mb-4">
+                <Image src={figure.wikipediaImageUrl} alt={figure.name} width={300} height={200} className='rounded-lg' />
+              </div>
+            )}
+            <h2 className='text-2xl bg-red-800 w-full'>{figure.name}</h2>
+            <button className="mt-2">Read More</button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
 export default WikiData;
+
 
 
