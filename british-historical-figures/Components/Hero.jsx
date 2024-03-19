@@ -23,7 +23,7 @@ const Hero = () => {
 
   return (
     <section className="h-screen">
-      <div className="flex  flex-col md:flex-row justify-center items-center ">
+      <div className="flex  flex-col md:flex-row justify-center items-center p-4">
         <div className="flex flex-col ">
           <Image
             ref={(el) => (imageRefs.current[0] = el)}
@@ -59,7 +59,7 @@ const Hero = () => {
 
     
 
-        <div className="border border-black flex flex-col items-center justify-center">
+        <div className=" flex flex-col items-center justify-center">
            {/* Image on the top/middle of the website. Inside of flex column div*/}
         <Image
             ref={(el) => (imageRefs.current[2] = el)}
@@ -68,15 +68,16 @@ const Hero = () => {
             }
             width={300}
             height={200}
-            alt="Helen Keller"
+            alt="Queen Victoria"
+            className="rounded-lg drop-shadow-xl"
           />
 
            {/* This is the text and button to go to search. I want to add padding this so there is space between text and pictures
                 I need to figure out what this will look like in mobile view. 
            
            */}
-          <div>
-          <h1 className="text-4xl font-extrabold drop-shadow-xl">
+          <div className="flex flex-col items-center justify-center p-10">
+          <h1 className="text-4xl font-extrabold drop-shadow-xl text-center">
             Historical Figures
           </h1>
 
@@ -97,6 +98,7 @@ const Hero = () => {
             width={300}
             height={200}
             alt="Helen Keller"
+            className="rounded-lg drop-shadow-xl "
           />
         </div>
 
