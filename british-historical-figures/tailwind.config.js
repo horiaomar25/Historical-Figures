@@ -10,14 +10,26 @@ module.exports = {
     extend: {
       screens: {
         sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'direct-url': 'url(https://img.freepik.com/free-vector/realistic-old-paper-texture-with-empty-space_52683-74455.jpg)'
+        
+      },
+      backgroundColor: {
+        'custom-color': '#b61924',
+      },
+      backgroundPosition: {
+        'custom-position': '50% 50%',
+      },
+      backgroundSize: {
+        'custom-size': 'cover',
+      },
+      backgroundRepeat: {
+        'no-repeat': 'no-repeat',
       },
     },
   },
