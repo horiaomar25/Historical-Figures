@@ -60,13 +60,13 @@ const Hero = () => {
           />
 
           <div className="flex flex-col items-center justify-center p-10">
-            <h1 className="text-4xl font-extrabold drop-shadow-xl text-center">
+            <h1 className="text-4xl font-extrabold drop-shadow-xl text-center text-white">
               Historical Figures
             </h1>
             <h2 className="text-4xl text-center p-10 ">
               Learn about Important Figures in History
             </h2>
-            <Link href="/search" ><button className="border-2 border-black w-52 rounded-xl bg-blue-700 p-2">
+            <Link href="/search" ><button className="border-2 border-black w-52 rounded-xl bg-blue-700 p-2 text-white bg-dark-brown">
               Explore
             </button></Link>
           </div>

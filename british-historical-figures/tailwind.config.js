@@ -16,7 +16,13 @@ module.exports = {
       },
       backgroundImage: {
         'custom-background': "url('https://img.freepik.com/free-photo/paper-texture_1048-4464.jpg?t=st=1711451554~exp=1711455154~hmac=27c0ade42ffeddfee1a24fb2c23a3a74915512d82a398ad432e8dc4c9dfa0714&w=740')",
-      },
+        
+      }, backgroundColor: {
+        'blue': '#9c6439', // Define your custom background color here
+        "dark-brown" : "#472611",
+      }, color: {
+        "dark-brown" : "#472611",
+      }
     },
   },
   plugins: [],

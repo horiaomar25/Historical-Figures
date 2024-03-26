@@ -64,11 +64,10 @@ const WikiData = ({ searchQuery }) => {
   };
 
   const capitalizeFirstLetter = (value) => {
-    // Check if the value is a string before attempting to capitalize it
     if (typeof value === 'string' && value.length > 0) {
       return value.charAt(0).toUpperCase() + value.slice(1);
     } else {
-      return value; // Return the original value if it's not a string or if it's empty
+      return value;
     }
   };
 
@@ -107,7 +106,3 @@ const WikiData = ({ searchQuery }) => {
 };
 
 export default WikiData;
-
-
-
-
