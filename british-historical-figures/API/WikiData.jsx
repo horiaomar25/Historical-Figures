@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 const WikiData = ({ searchQuery }) => {
   const [figures, setFigures] = useState([]);
+  const [selectedFigure, setSelectedFigure] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,20 +59,49 @@ const WikiData = ({ searchQuery }) => {
     }
   };
 
+  const handleClick = (figure) => {
+    setSelectedFigure(figure);
+  };
+
+  const capitalizeFirstLetter = (value) => {
+    // Check if the value is a string before attempting to capitalize it
+    if (typeof value === 'string' && value.length > 0) {
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    } else {
+      return value; // Return the original value if it's not a string or if it's empty
+    }
+  };
+
   return (
     <div>
       <div className="flex flex-wrap">
         {figures.map((figure, index) => (
-          <div key={index} className="m-8 w-1/5 flex flex-col" >
+          <div key={index} className="m-8 w-1/5 flex flex-col" onClick={() => handleClick(figure)}>
             {figure.wikipediaImageUrl && (
               <div className="mb-4">
                 <Image src={figure.wikipediaImageUrl} alt={figure.name} width={300} height={200} className='rounded-lg' />
               </div>
             )}
-            
           </div>
         ))}
       </div>
+
+      {selectedFigure && (
+        <div>
+          <Image src={selectedFigure.wikipediaImageUrl} alt={selectedFigure.name} width={300} height={200} />
+          <h2>{selectedFigure.name}</h2>
+          <p>Title: {selectedFigure.title}</p>
+          <p>Info:</p>
+          <ul>
+            {Object.entries(selectedFigure.info).map(([key, value], idx) => (
+              <li key={idx}>
+                <strong>{capitalizeFirstLetter(key)}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+          
+        </div>
+      )}
     </div>
   );
 };

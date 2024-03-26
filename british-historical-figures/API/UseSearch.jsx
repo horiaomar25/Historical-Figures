@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-
-const UseSearch = () => {
+const UseSearch = ({ searchQuery, onImageClick }) => {
   const [figures, setFigures] = useState([]);
 
   const fetchData = async () => {
@@ -75,7 +74,7 @@ const UseSearch = () => {
             <p>Info:</p>
             <ul>
               {figure.wikipediaImageUrl && (
-              <div>
+              <div onClick={() => onImageClick(figure)}> {/* Handle image click */}
                 <Image src={figure.wikipediaImageUrl} alt={figure.name} width={200} height={200} />
               </div>  )}
               {Object.entries(figure.info).map(([key, value], idx) => (
@@ -84,8 +83,6 @@ const UseSearch = () => {
                 </li>
               ))}
             </ul>
-            
-          
           </li>
         ))}
       </ul>

@@ -11,7 +11,8 @@ const Navigation = () => {
 
     return (
         <>
-            {!isOpen && <button onClick={toggleMenu} className='m-8'><img src='/menu.png' className='w-10'/></button>}
+        
+            {!isOpen && <button onClick={toggleMenu} className='m-8'><img src='/menus.png' className='w-10'/></button>}
             {isOpen && (
                 <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50">
                

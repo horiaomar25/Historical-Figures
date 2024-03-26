@@ -15,23 +15,9 @@ module.exports = {
         xl: '1280px',
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        
-      },
-      backgroundColor: {
-        'custom-color': '#b61924',
-      },
-      backgroundPosition: {
-        'custom-position': '50% 50%',
-      },
-      backgroundSize: {
-        'custom-size': 'cover',
-      },
-      backgroundRepeat: {
-        'no-repeat': 'no-repeat',
+        'custom-background': "url('https://img.freepik.com/free-photo/paper-texture_1048-4464.jpg?t=st=1711451554~exp=1711455154~hmac=27c0ade42ffeddfee1a24fb2c23a3a74915512d82a398ad432e8dc4c9dfa0714&w=740')",
       },
     },
   },
   plugins: [],
-}
+};

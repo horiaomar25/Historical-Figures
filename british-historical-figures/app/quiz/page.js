@@ -1,12 +1,8 @@
-import React from 'react'
+import QuizContainer from "@/Components/QuizContainer"
 
 const page = () => {
   return (
-    <section className='flex justify-center items-center'>
-      <div className='border border-black w-1/2 h-96'>
-
-      </div>
-    </section>
+   <QuizContainer/>
   )
 }
 

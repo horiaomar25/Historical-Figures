@@ -4,7 +4,10 @@ import Image from 'next/image';
 const About = () => {
   
   return(
-    <h1></h1>
+    <>
+    <h1>Quiz</h1>
+    <p>Test your knowledge with this quiz</p>
+    </>
   )
 };
 
