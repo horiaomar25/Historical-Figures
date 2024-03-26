@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const Hero = () => {
   const imageRefs = useRef([]);
+  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,21 @@ const Hero = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!fadeIn) {
+      const images = imageRefs.current;
+      images.forEach((image, index) => {
+        image.style.opacity = 0;
+        const timer = setTimeout(() => {
+          image.style.transition = "opacity 1s ease-in";
+          image.style.opacity = 1;
+        }, 1000 * (index + 1)); // Adjust the delay as needed
+        return () => clearTimeout(timer);
+      });
+      setFadeIn(true);
+    }
+  }, [fadeIn]);
+
   return (
     <section className="h-screen">
       <div className="flex  flex-col md:flex-row justify-center items-center p-4">
@@ -34,11 +50,6 @@ const Hero = () => {
             height={200}
             className="rounded-lg mb-4 mt-8 drop-shadow-xl "
             alt="Marie Curie"
-            style={{
-              opacity: 0,
-              transform: "translateY(50px)",
-              transition: "opacity 0.5s, transform 0.5s",
-            }}
           />
           <Image
             ref={(el) => (imageRefs.current[1] = el)}
@@ -49,19 +60,11 @@ const Hero = () => {
             height={175}
             className="rounded-lg drop-shadow-xl "
             alt="Martin Luther King"
-            style={{
-              opacity: 0,
-              transform: "translateY(50px)",
-              transition: "opacity 0.5s, transform 0.5s",
-            }}
           />
         </div>
 
-    
-
         <div className=" flex flex-col items-center justify-center">
-           {/* Image on the top/middle of the website. Inside of flex column div*/}
-        <Image
+          <Image
             ref={(el) => (imageRefs.current[2] = el)}
             src={
               "https://www.florence-nightingale.co.uk/wp-content/uploads/60-Queen-Victoria-scaled.jpg"
@@ -72,26 +75,20 @@ const Hero = () => {
             className="rounded-lg drop-shadow-xl"
           />
 
-           {/* This is the text and button to go to search. I want to add padding this so there is space between text and pictures
-                I need to figure out what this will look like in mobile view. 
-           
-           */}
           <div className="flex flex-col items-center justify-center p-10">
-          <h1 className="text-4xl font-extrabold drop-shadow-xl text-center">
-            Historical Figures
-          </h1>
+            <h1 className="text-4xl font-extrabold drop-shadow-xl text-center">
+              Historical Figures
+            </h1>
+            <h2 className="text-4xl text-center p-10 ">
+              Learn about Important Figures in History
+            </h2>
+            <button className="border-2 border-black w-32 rounded-xl bg-red-100">
+              Explore
+            </button>
+          </div>
 
-          <h2 className="text-4xl text-center p-10 ">
-            Learn about Important Figures in History
-          </h2>
-          <button className="border-2 border-black w-32 rounded-xl bg-red-100">
-            Explore
-          </button>
-           </div>
-
-           {/* Image on the bottom/middle of the website. Inside of flex column div*/}
-            <Image
-            ref={(el) => (imageRefs.current[2] = el)}
+          <Image
+            ref={(el) => (imageRefs.current[3] = el)}
             src={
               "https://www.womenshistory.org/sites/default/files/styles/main_image/public/images/2018-07/Keller_Helen%20square.jpg?itok=mSV8IAcB"
             }
@@ -104,7 +101,7 @@ const Hero = () => {
 
         <div className="flex flex-col ">
           <Image
-            ref={(el) => (imageRefs.current[2] = el)}
+            ref={(el) => (imageRefs.current[4] = el)}
             src={
               "http://localhost:3000/_next/image?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F5e%2FWilliam_Shakespeare_by_John_Taylor.jpg%2F300px-William_Shakespeare_by_John_Taylor.jpg&w=640&q=75"
             }
@@ -112,26 +109,16 @@ const Hero = () => {
             height={200}
             className="rounded-lg mb-4 drop-shadow-xl"
             alt="William Shakespeare"
-            style={{
-              opacity: 0,
-              transform: "translateY(50px)",
-              transition: "opacity 0.5s, transform 0.5s",
-            }}
           />
           <Image
-            ref={(el) => (imageRefs.current[3] = el)}
+            ref={(el) => (imageRefs.current[5] = el)}
             src={
-              "http://localhost:3000/_next/image?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fb%2Fbc%2FSir_Winston_Churchill_-_19086236948.jpg%2F300px-Sir_Winston_Churchill_-_19086236948.jpg&w=640&q=75"
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/440px-Sir_Winston_Churchill_-_19086236948.jpg"
             }
             width={300}
             height={200}
             className="rounded-lg drop-shadow-xl "
-            alt="Ada Lovelace"
-            style={{
-              opacity: 0,
-              transform: "translateY(50px)",
-              transition: "opacity 0.5s, transform 0.5s",
-            }}
+            alt="Winston Churchill"
           />
         </div>
       </div>
@@ -140,3 +127,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
