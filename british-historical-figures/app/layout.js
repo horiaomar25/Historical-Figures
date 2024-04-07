@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/Components/Navigation";
+import NewNav from "@/Components/NewNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,8 +12,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-blue"  >
-        <Navigation/>
+      <body   >
+    <NewNav/>
         {children}
         </body>
     </html>

@@ -23,7 +23,7 @@ const Hero = () => {
         setTimeout(() => {
           image.style.transition = "opacity 1s ease-in";
           image.style.opacity = 1;
-        }, 1000 * (index + 1));
+        }, 500 * (index + 1));
       });
 
       // After all images have faded in, set fadeIn state to true
@@ -41,18 +41,18 @@ const Hero = () => {
   }, [fadeIn, imageArr.length]);
 
   return (
-    <section className="h-screen">
-           <h1 className="text-4xl text-center">History Figures</h1>
-      <div className="flex flex-col md:flex-row justify-center items-center p-4">
-   
+    <section className="h-auto border border-black bg-black w-auto">
+          
+      <div className="flex flex-col md:flex-row justify-center items-center mt-4 p-4">
+       
         {imageArr.map((src, index) => (
           <Image
             ref={(el) => (imageRefs.current[index] = el)}
             key={index}
             src={src}
-            width={300}
+            width={200}
             height={200}
-            className={`rounded-full mb-4 border-2 border-black${
+            className={`rounded-md mb-4 border-2 border-white${
               index === 0 ? "mt-8" : ""
             } drop-shadow-xl`}
             alt={`Image ${index}`}
@@ -61,7 +61,7 @@ const Hero = () => {
         ))}
       </div>
       <div className="flex justify-center items-center mt-10">
-      <input className="w-1/2 p-3 rounded-xl border-2 border-black"></input>
+     
       </div>
     </section>
   );

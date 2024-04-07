@@ -11,12 +11,13 @@ const Navigation = () => {
 
     return (
         <>
-        
+       
             {!isOpen && <button onClick={toggleMenu} className='m-8'><img src='/menus.png' className='w-10'/></button>}
             {isOpen && (
                 <div className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50">
                
-                    <header className={`w-1/2 md:w-1/5 bg-black z-50 h-screen border border-white transition-transform duration-700 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                    <header className={`w-1/2 md:w-1/5 bg-black z-50 h-screen border border-white transition-transform duration-700 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}> 
+                        <h1 className="text-white text-4xl font-bold m-8 ">Historical Figures</h1>
                         <Image src={"/cross.png"} width={30} height={30} alt="cross-icon" className='float-right m-4' onClick={toggleMenu}/>
                         <nav>
                             <ul className='text-white flex flex-col items-center justify-center p-4'>
@@ -26,7 +27,9 @@ const Navigation = () => {
                         </nav>
                     </header>
                 </div>
-            )}
+              
+            )} 
+         
         </>
     );
 };

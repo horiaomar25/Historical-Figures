@@ -2,14 +2,14 @@
 
 import Hero from "@/Components/Hero";
 import About from "@/Components/About";
-import Test from "@/Components/Test";
-import ImageSlider from "@/Components/ImageSlider";
+import NewNav from "@/Components/NewNav";
 
 
 export default function Home() {
   return (
     <>
-    <Hero/>
+
+   <Hero/>
     
       <About />
 
