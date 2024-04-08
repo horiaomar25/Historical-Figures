@@ -7,7 +7,7 @@ const About = () => {
       <div className="flex flex-col justify-center items-center ">
         <h1>Quiz</h1>
         <p>Test your knowledge with this quiz</p>
-        <button className="border border-black w-1/2 rounded-lg p-2 bg-dark-brown">
+        <button className="border border-black w-1/2 rounded-lg p-2 ">
           <Link href="/quiz"> Quiz</Link>
         </button>
       </div>

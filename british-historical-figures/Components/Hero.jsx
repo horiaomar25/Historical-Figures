@@ -42,6 +42,9 @@ const Hero = () => {
 
   return (
     <section className="h-auto border border-black bg-black w-auto">
+
+      <h1 className="text-white text-7xl text-center font-bold mt-8">Historical <span className="text-blue-500">Figures</span></h1>
+      <p className="text-gray-500 text-center mt-5 text-2xl">Learn about History most important figures</p>
           
       <div className="flex flex-col md:flex-row justify-center items-center mt-4 p-4">
        
