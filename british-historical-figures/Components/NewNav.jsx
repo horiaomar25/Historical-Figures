@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import Navigation from './Navigation';
+import Navigation from './MobileNav';
+import Link from 'next/link'; // Import Link from Next.js
 
 const NewNav = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -21,14 +22,15 @@ const NewNav = () => {
   }, []);
 
   return (
-    <header className='flex justify-between items-center'> 
-      <h1 className="text-black text-4xl font-bold m-8 ">Historical Figures</h1>
+    
+    <header className='flex justify-between items-center w-auto'> 
+      <h1 className=" text-4xl font-bold m-8 text-white ">Historical <span className="text-blue-500">Figures</span></h1>
       {isMobile && <Navigation />}
-      <nav className='border border-red p-4 m-4 w-1/2 '>
-        <ul className='text-black font-bold w-auto flex justify-between items-center m-2'>
-          <li>Home</li>
-          <li>Explore</li>
-          <li className='mx-2'>Quiz</li>
+      <nav className= 'p-8 m-4 w-1/2 text-white '>
+        <ul className='text-white font-bold w-auto flex justify-between items-center '>
+          <Link href="/"><li className='hover: bg-blue-500 w-full'>Home</li></Link>
+          <Link href="/search"><li>Explore</li></Link> {/* Use Link component with href */}
+          <Link href="/quiz"><li>Quiz</li></Link>
         </ul>
       </nav>
     </header>

@@ -8,11 +8,9 @@ import NewNav from "@/Components/NewNav";
 export default function Home() {
   return (
     <>
-
-   <Hero/>
-    
+      <Hero />
       <About />
-
+  
     </>
   );
 }

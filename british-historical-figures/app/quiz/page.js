@@ -1,8 +1,13 @@
+import CorrectAnswer from "@/Components/CorrectAnswer"
 import QuizContainer from "@/Components/QuizContainer"
+
 
 const page = () => {
   return (
-   <QuizContainer/>
+    <>
+ <QuizContainer/>
+
+ </>
   )
 }
 

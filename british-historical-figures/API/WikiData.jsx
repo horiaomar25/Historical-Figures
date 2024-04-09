@@ -77,28 +77,33 @@ const WikiData = ({ searchQuery }) => {
         {figures.map((figure, index) => (
           <div key={index} className="m-8 w-1/5 flex flex-col" onClick={() => handleClick(figure)}>
             {figure.wikipediaImageUrl && (
+              <>
               <div className="mb-4">
-                <Image src={figure.wikipediaImageUrl} alt={figure.name} width={300} height={200} className='rounded-lg' />
+                <Image src={figure.wikipediaImageUrl} alt={figure.name} width={200} height={300} className='rounded-lg' /> 
+                <p className='text-white text-center border border-white p-2'>{figure.name}</p>
               </div>
+             
+              </>
             )}
           </div>
         ))}
       </div>
 
       {selectedFigure && (
-        <div>
+        <div className='border border-white flex justify-center items-center flex-col'>
           <Image src={selectedFigure.wikipediaImageUrl} alt={selectedFigure.name} width={300} height={200} />
-          <h2>{selectedFigure.name}</h2>
-          <p>Title: {selectedFigure.title}</p>
-          <p>Info:</p>
-          <ul>
+          <h2 className='text-white text-2xl font-bold'>{selectedFigure.name}</h2>
+          <div className='border border-white w-full p-4'>
+          <p className='text-white'>Title: {selectedFigure.title}</p>
+          
+          <ul className='text-white'>
             {Object.entries(selectedFigure.info).map(([key, value], idx) => (
               <li key={idx}>
                 <strong>{capitalizeFirstLetter(key)}:</strong> {value}
               </li>
             ))}
           </ul>
-          
+          </div>
         </div>
       )}
     </div>

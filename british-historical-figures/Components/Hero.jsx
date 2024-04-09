@@ -42,12 +42,17 @@ const Hero = () => {
 
   return (
     <section className="h-auto border border-black bg-black w-auto">
+      <h1 className="text-white text-7xl text-center font-bold mt-8 font-Inter -tracking-tight">
+        Historical{" "}
+        <span className="pb-4 font-extrabold -tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500">
+          Figures
+        </span>
+      </h1>
+      <p className="text-gray-500 text-center mt-5 text-2xl">
+        Learn about History most important figures
+      </p>
 
-      <h1 className="text-white text-7xl text-center font-bold mt-8">Historical <span className="text-blue-500">Figures</span></h1>
-      <p className="text-gray-500 text-center mt-5 text-2xl">Learn about History most important figures</p>
-          
       <div className="flex flex-col md:flex-row justify-center items-center mt-4 p-4">
-       
         {imageArr.map((src, index) => (
           <Image
             ref={(el) => (imageRefs.current[index] = el)}
@@ -55,7 +60,7 @@ const Hero = () => {
             src={src}
             width={200}
             height={200}
-            className={`rounded-md mb-4 border-2 border-white${
+            className={`rounded-md mb-4 mr-8 mt-4 border-2 border-white${
               index === 0 ? "mt-8" : ""
             } drop-shadow-xl`}
             alt={`Image ${index}`}
@@ -63,9 +68,7 @@ const Hero = () => {
           />
         ))}
       </div>
-      <div className="flex justify-center items-center mt-10">
-     
-      </div>
+      <div className="flex justify-center items-center mt-10"></div>
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NewNav from "@/Components/NewNav";
+import Starfield from "@/Components/StarField";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,12 @@ export default function RootLayout({ children }) {
       <body   >
     <NewNav/>
         {children}
+        <Starfield
+        starCount={1000}
+        starColor={[255, 255, 255]}
+        speedFactor={0.1}
+        backgroundColor="black"
+      />
         </body>
     </html>
   );

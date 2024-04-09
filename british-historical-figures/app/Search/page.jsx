@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import WikiData from '@/API/WikiData';
 
+
 const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showResults, setShowResults] = useState(false); // State to control when to show results
@@ -21,19 +22,23 @@ const Search = () => {
     return (
         <>
             <div className="flex flex-col justify-center items-center m-8">
-                <h1 className="text-white text-4xl text-center font-bold border border-white mb-10">Historical Figures</h1>
-                <div className='flex w-1/2 justify-center items-center'>
-                    <input
-                        type="text"
-                        className="w-1/2 border border-black h-10 rounded-lg"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                    />
-                    <button onClick={handleSearch} className='border border-black h-10 rounded-lg p-2 bg-dark-brown'>Search</button>
-                </div>
-            </div>
-
+  <h3 className="text-white text-7xl text-center font-bold mt-8 mb-8">Historical <span className="pb-4 font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500">Figures</span></h3>
+  <div className='relative w-1/2'>
+    <input
+      type="text"
+      className="w-full border border-black h-10 rounded-lg pr-12" // Adjusted padding to make space for the button
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      onKeyPress={handleKeyPress}
+    />
+    <button 
+      onClick={handleSearch} 
+      className='absolute right-0 top-0 h-full px-4 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 text-white rounded-r-lg' // Positioned the button absolutely
+    >
+      Search
+    </button>
+  </div>
+</div>
             {/* Render WikiData component only when showResults is true */}
             {showResults && <WikiData searchQuery={searchQuery} />}
         </>
