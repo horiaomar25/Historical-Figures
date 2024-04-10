@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <NewNav/>
         {children}
         <Starfield
-        starCount={1000}
+        starCount={5000}
         starColor={[255, 255, 255]}
         speedFactor={0.1}
         backgroundColor="black"

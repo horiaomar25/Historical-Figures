@@ -33,7 +33,7 @@ const Hero = () => {
     } else {
       // After fadeIn state is true, change image after 5 seconds
       const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setFadeIn((prevIndex) => (prevIndex + 1) % images.length);
       }, 5000);
 
       return () => clearInterval(interval);
@@ -41,7 +41,7 @@ const Hero = () => {
   }, [fadeIn, imageArr.length]);
 
   return (
-    <section className="h-auto border border-black bg-black w-auto">
+    <section className="h-auto border border-black  w-auto">
       <h1 className="text-white text-7xl text-center font-bold mt-8 font-Inter -tracking-tight">
         Historical{" "}
         <span className="pb-4 font-extrabold -tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500">
@@ -52,7 +52,7 @@ const Hero = () => {
         Learn about History most important figures
       </p>
 
-      <div className="flex flex-col md:flex-row justify-center items-center mt-4 p-4">
+      <div className="flex flex-col md:flex-row justify-center items-center mt-2 p-4">
         {imageArr.map((src, index) => (
           <Image
             ref={(el) => (imageRefs.current[index] = el)}
@@ -60,7 +60,7 @@ const Hero = () => {
             src={src}
             width={200}
             height={200}
-            className={`rounded-md mb-4 mr-8 mt-4 border-2 border-white${
+            className={`rounded-xl  mr-8 mt-4 border-2 border-black${
               index === 0 ? "mt-8" : ""
             } drop-shadow-xl`}
             alt={`Image ${index}`}
