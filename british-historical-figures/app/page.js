@@ -2,7 +2,7 @@
 
 import Hero from "@/Components/Hero";
 import About from "@/Components/About";
-import AboutSearch from "@/Components/AboutSearch";
+
 
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      <AboutSearch/>
+      
   
     </>
   );
