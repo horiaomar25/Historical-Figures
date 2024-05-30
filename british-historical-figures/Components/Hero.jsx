@@ -50,7 +50,7 @@ const Hero = () => {
         </span>
       </h1>
       <p className="text-gray-500 text-center mt-5 text-2xl">
-        Learn about History most important figures
+        Learn about History most important figures Hello
       </p>
 
       <div className="flex flex-col md:flex-row justify-center items-center mt-2 p-4">
