@@ -7,7 +7,7 @@ const NavigationBar = () => {
     <>
       <div className="navbar bg-base-100 ">
         <div className="flex-none">
-          <label htmlFor="my-drawer" className="btn btn-primary m-2 bg-white">
+          <label htmlFor="my-drawer" className="btn  m-2 hover:bg-white bg-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -60,20 +60,21 @@ const NavigationBar = () => {
               <h1 className="text-4xl font-bold m-8 text-black">
                 Historical <span className="text-blue-500">Figures</span>
               </h1>
-              <li className="hover:bg-blue hover:w-full hover:border rounded-md text-lg">
+              <li className=" hover:w-full hover:border rounded-md text-lg">
                 <Link href="/" className="text-center">
                   Home
                 </Link>
               </li>
-              <li className="hover:bg-orange hover:w-full hover:border rounded-md text-lg">
+              <li className=" hover:w-full hover:border rounded-md text-lg">
                 <Link href="/search">Search</Link>
               </li>
               <li className="hover:bg-orange hover:w-full hover:border rounded-md text-lg">
-                <Link href="/Categories">Categories</Link>
+                <Link href="/quiz">Quiz</Link>
               </li>
             </ul>
           </div>
         </div>
+        
       </div>
     </>
   );

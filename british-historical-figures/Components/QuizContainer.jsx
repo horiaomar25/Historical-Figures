@@ -1,12 +1,12 @@
-/* eslint-disable react/no-unescaped-entities */
+"use client"
 import React from 'react'
-import Quiz from './Quiz'
+
 
 const QuizContainer = () => {
   return (
     <section className='flex justify-center items-center'>
       <div className='border border-white w-1/2 h-96'>
-       <Quiz/>
+     <h1>Hello World</h1>
       </div>
     </section>
   )

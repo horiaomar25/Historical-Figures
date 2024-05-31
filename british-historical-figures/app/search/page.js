@@ -36,21 +36,7 @@ const Search = () => {
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen ">
-      <div className='relative w-1/2'>
-        <input
-          type="text"
-          className="w-full border border-black h-10 rounded-lg pr-12 pl-4" // Added padding-left for consistency
-          value={searchQuery}
-          onChange={handleSearchChange}
-          onKeyPress={handleKeyPress}
-        />
-        <button 
-          onClick={handleSearch} 
-          className='absolute right-0 top-0 h-full px-4 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 text-white rounded-r-lg'
-        >
-          Search
-        </button>
-      </div>
+      
       <WikiData searchQuery={searchQuery} onSelectFigure={handleSelectFigure} />
 
       {selectedFigure && (

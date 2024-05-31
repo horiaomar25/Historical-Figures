@@ -1,8 +1,8 @@
-import CorrectAnswer from "@/Components/CorrectAnswer"
+"use client"
 import QuizContainer from "@/Components/QuizContainer"
 
 
-const page = () => {
+const Quiz = () => {
   return (
     <>
  <QuizContainer/>
@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Quiz
