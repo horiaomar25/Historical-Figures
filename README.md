@@ -1,2 +1,2 @@
 # British-Historical-Figures
-Creating a website about British historical figures where you can read more info about them
+Creating a website that will search about famous individual using the Historical Figures API and the Wiki API
