@@ -1,13 +1,13 @@
-/* eslint-disable import/no-anonymous-default-export */
-import daisyui from "daisyui";
-
-export default {
+module.exports = {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
+    "./Components/**/*.{js,jsx}",
     "./app/**/*.{js,jsx}",
     "./src/**/*.{js,jsx}",
+    "./node_modules/daisyui/**/*.{js,jsx,ts,tsx}",
   ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -19,24 +19,28 @@ export default {
         xl: "1280px",
       },
     },
-    colors: {
-      
+    extend: {
+     
+      boxShadow: {
+        "nav-shadow": "0 4px 30px rgba(248, 135, 73, 0.5);",
+      },
+      hover: {
+        "nav-shadow": "0 4px 30px rgba(248, 135, 73, 0.8);",
+      },
+      backgroundImage: {
+        
+      },
+      colors: {
+        orange: "#F88749",
+        yellow: "#FCF0BB",
+        blue: "#eaeefe",
+      },
     },
-  },
-  boxShadow: {
-    
-  },
-  extend: {
-   
-  },
-  fontFamily: {
-    poppins: "Poppins",
-    rethinksans: "Rethink Sans"
   },
   daisyui: {
     themes: [],
-  },
-  plugins: [daisyui],
+  }, // This closing brace was missing in the previous response
+  plugins: [require("daisyui")],
 };
 
 
