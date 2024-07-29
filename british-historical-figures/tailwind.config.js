@@ -1,3 +1,5 @@
+const { color } = require("@chakra-ui/react");
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -20,27 +22,30 @@ module.exports = {
       },
     },
     extend: {
-     
-      boxShadow: {
-        "nav-shadow": "0 4px 30px rgba(248, 135, 73, 0.5);",
-      },
-      hover: {
-        "nav-shadow": "0 4px 30px rgba(248, 135, 73, 0.8);",
-      },
       backgroundImage: {
-        
+        'blue-gradient': 'linear-gradient(to right, #3b82f6, #60a5fa)',
       },
-      colors: {
-        orange: "#F88749",
-        yellow: "#FCF0BB",
-        blue: "#eaeefe",
+      boxShadow: {
+        'blue-shadow': '0 4px 15px rgba(59, 130, 246, 0.5)', // Custom blue shadow
+      },
+      keyframes: {
+        bob: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      animation: {
+        bob: 'bob 3s infinite',
       },
     },
+      
+  
   },
   daisyui: {
     themes: [],
   }, // This closing brace was missing in the previous response
   plugins: [require("daisyui")],
+  
 };
 
 

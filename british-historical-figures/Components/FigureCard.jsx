@@ -25,11 +25,11 @@ const FigureCard = ({ onSelectFigure }) => {
 
   return (
     <div className="flex flex-col items-center m-8">
-      <div className="mb-4 flex w-full max-w-lg">
+      
         <input
           type="text"
-          className="input input-bordered w-full bg-white"
-          placeholder="Search historical figures..."
+          placeholder="Search for a figure"
+  className="mt-5 p-2 text-center bg-black bg-opacity-20 w-1/2 border border-white border-opacity-20 rounded-xl text-white placeholder-gray-500 focus:border-orange focus:outline-none"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyPress={handleKeyPress}
@@ -40,7 +40,7 @@ const FigureCard = ({ onSelectFigure }) => {
         >
           Search
         </button>
-      </div>
+     
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
         {figures.map((figure, index) => (
           <div
