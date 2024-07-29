@@ -1,35 +1,43 @@
-const { Inter } = require('next/font/google');
+/* eslint-disable import/no-anonymous-default-export */
+import daisyui from "daisyui";
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class"],
+export default {
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
       },
     },
-    extend: {
-      fontFamily: {
-        Inter: ['Inter', 'serif'],
-       },colors: {
-        brown: "#F7EDE6",
-      },
+    colors: {
       
     },
   },
+  boxShadow: {
+    
+  },
+  extend: {
+   
+  },
+  fontFamily: {
+    poppins: "Poppins",
+    rethinksans: "Rethink Sans"
+  },
   daisyui: {
     themes: [],
-  }, // This closing brace was missing in the previous response
-  plugins: [require("daisyui")],
+  },
+  plugins: [daisyui],
 };
+
+
 
