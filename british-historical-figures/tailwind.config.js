@@ -26,7 +26,7 @@ module.exports = {
         'blue-gradient': 'linear-gradient(to right, #3b82f6, #60a5fa)',
       },
       boxShadow: {
-        'blue-shadow': '0 4px 15px rgba(59, 130, 246, 0.5)', // Custom blue shadow
+        'white-shadow': '0 4px 15px rgba(255, 255, 255, 0.5)',
       },
       keyframes: {
         bob: {
