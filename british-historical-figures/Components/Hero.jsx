@@ -6,7 +6,6 @@ const Hero = () => {
   const imageArr = [
     "http://localhost:3000/_next/image?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc8%2FMarie_Curie_c._1920s.jpg%2F300px-Marie_Curie_c._1920s.jpg&w=640&q=75",
     "http://localhost:3000/_next/image?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F0%2F05%2FMartin_Luther_King%252C_Jr..jpg%2F300px-Martin_Luther_King%252C_Jr..jpg&w=640&q=75",
-
     "https://www.florence-nightingale.co.uk/wp-content/uploads/60-Queen-Victoria-scaled.jpg",
     " https://blogs.ucl.ac.uk/library-rnid/files/2012/10/Helen-Keller-001.jpg",
     "http://localhost:3000/_next/image?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F5e%2FWilliam_Shakespeare_by_John_Taylor.jpg%2F300px-William_Shakespeare_by_John_Taylor.jpg&w=640&q=75",
@@ -50,8 +49,10 @@ const Hero = () => {
         </span>
       </h1>
       <p className="text-gray-500 text-center mt-5 text-2xl">
-        Learn about History most important figures Hello
+        Learn about History most important figures 
       </p>
+
+      
 
       <div className="flex flex-col md:flex-row justify-center items-center mt-2 p-4">
         {imageArr.map((src, index) => (

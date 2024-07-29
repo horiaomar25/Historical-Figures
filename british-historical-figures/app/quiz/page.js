@@ -1,12 +1,12 @@
 "use client"
-import QuizContainer from "@/Components/QuizContainer"
+
 
 
 const Quiz = () => {
   return (
     <>
- <QuizContainer/>
 
+<div>Hello</div>
  </>
   )
 }

@@ -21,7 +21,9 @@ module.exports = {
     extend: {
       fontFamily: {
         Inter: ['Inter', 'serif'],
-       },
+       },colors: {
+        brown: "#F7EDE6",
+      },
       
     },
   },

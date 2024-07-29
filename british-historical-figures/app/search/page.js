@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import WikiData from '@/Components/Wiki';
+import FigureCard from '@/Components/FigureCard';
 import Image from 'next/image';
 
 const Search = () => {
@@ -37,7 +37,7 @@ const Search = () => {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen ">
       
-      <WikiData searchQuery={searchQuery} onSelectFigure={handleSelectFigure} />
+      <FigureCard searchQuery={searchQuery} onSelectFigure={handleSelectFigure} />
 
       {selectedFigure && (
         <div className='border border-white flex justify-center items-center flex-col'>

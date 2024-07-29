@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import useHistoricalFigures from "./Custom Hooks/useHistoricalFigures"; // Adjust the path as necessary
+import useHistoricalFigures from "../Custom Hooks/useHistoricalFigures"; // Adjust the path as necessary
 
-const WikiData = ({ onSelectFigure }) => {
+const FigureCard = ({ onSelectFigure }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [triggerSearch, setTriggerSearch] = useState(false);
   const figures = useHistoricalFigures(triggerSearch ? searchQuery : "");
@@ -75,6 +75,6 @@ const WikiData = ({ onSelectFigure }) => {
   );
 };
 
-export default WikiData;
+export default FigureCard;
 
 
