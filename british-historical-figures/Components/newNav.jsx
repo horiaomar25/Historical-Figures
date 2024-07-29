@@ -32,13 +32,13 @@ const NewNav = () => {
     </div>
 
 {/** Desktop Navigation */}
-    <a className="btn btn-ghost text-xl text-white">Historical Figures</a>
+    <a className="btn btn-ghost text-4xl text-white">H<span className='text-blue-600'>F</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li className='text-white'><a>Home</a></li>
-      <li className='text-white'><a>Search</a></li>
-      <li className='text-white'><a>Quiz</a></li>
+      <li className='text-white text-xl font-semibold hover:text-blue-600'><a>Home</a></li>
+      <li className='text-white text-xl font-semibold hover:text-blue-600'><a>Search</a></li>
+      <li className='text-white text-xl font-semibold hover:text-blue-600'><a>Quiz</a></li>
     </ul>
   </div>
   <div className="navbar-end">
