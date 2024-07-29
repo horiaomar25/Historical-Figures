@@ -1,4 +1,4 @@
-const { color } = require("@chakra-ui/react");
+
 
 module.exports = {
   darkMode: ["class"],
