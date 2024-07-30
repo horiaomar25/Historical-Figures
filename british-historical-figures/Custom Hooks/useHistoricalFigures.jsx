@@ -19,6 +19,7 @@ const useHistoricalFigures = (searchQuery) => {
 
 
 
+
 /** The useEffect is created to perform a side effect whenever the searchQuery changes */
   useEffect(() => {
     /** This fetchData function is created to check if searchQuery is empty. If not it
@@ -77,8 +78,12 @@ const useHistoricalFigures = (searchQuery) => {
       console.error('Error fetching Wikipedia image:', error);
       return defaultImageUrl;
     }
+
+    
   };
 
+
+  console.log(figures)
   return figures;
 
  
