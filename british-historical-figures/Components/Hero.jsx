@@ -9,16 +9,16 @@ const Hero = () => {
     <>
       <div className="circlePosition w-[300px] h-[500px] bg-gradient-to-r from-sky-500 via-blue-600 to-blue-700 rounded-[100%] absolute z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[900px]"></div>
       <section className="flex flex-col justify-center items-center relative">
-        <h1 className="text-white text-7xl text-center font-bold mt-8 font-Inter -tracking-tight">
+        <h1 className="text-white text-7xl text-center font-bold mt-8  -tracking-tight">
           Historical{" "}
           <span className="pb-4 font-extrabold -tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-cyan-500 to-sky-500">
             Figures
           </span>
         </h1>
-        <p className="text-gray-500 text-center mt-5 text-2xl">
+        <p className="text-white text-center mt-5 text-2xl">
           Learn about History's most important figures
         </p>
-        <button className=" p-2 w-32 rounded-lg bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 hover:shadow-white-shadow mt-5">
+        <button className=" p-2 w-32 rounded-lg bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 hover:shadow-white-shadow mt-5 text-white">
   Explore
 </button>
 

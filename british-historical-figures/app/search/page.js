@@ -1,65 +1,54 @@
 "use client";
 import React, { useState } from 'react';
 import FigureCard from '@/Components/FigureCard';
-import Image from 'next/image';
+import useHistoricalFigures from '@/Custom Hooks/useHistoricalFigures';
 
-const Search = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedFigure, setSelectedFigure] = useState(null);
 
-  const handleSelectFigure = (figure) => {
-    setSelectedFigure(figure);
-  };
+const Page = () => {
+  const { figures, error } = useHistoricalFigures({ limit: 10 });
+  const[ search, setSearch ] = useState('');
 
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
+  
 
-  const handleSearch = () => {
-    // Trigger search (this will automatically trigger the useEffect in WikiData component)
-    console.log('Search initiated for:', searchQuery);
-  };
+  if (error) return <h2>Failed to load</h2>
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      handleSearch();
-    }
-  };
+  const handleSearch = (e) => { 
+    setSearch(e.target.value);
+  }
 
-  const capitalizeFirstLetter = (value) => {
-    if (typeof value === 'string' && value.length > 0) {
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    } else {
-      return value;
-    }
-  };
+  const handleSubmission = (e) => {
+    e.preventDefault();
+    console.log(search);
+  }
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen ">
-      
-      <FigureCard searchQuery={searchQuery} onSelectFigure={handleSelectFigure} />
+    <>
 
-      {selectedFigure && (
-        <div className='border border-white flex justify-center items-center flex-col'>
-          <Image src={selectedFigure.wikipediaImageUrl} alt={selectedFigure.name} width={300} height={200} />
-          <h2 className='text-white text-2xl font-bold'>{selectedFigure.name}</h2>
-          <div className='border border-white w-full p-4'>
-            <p className='text-white'>Title: {selectedFigure.title}</p>
-            <ul className='text-white'>
-              {Object.entries(selectedFigure.info).map(([key, value], idx) => (
-                <li key={idx}>
-                  <strong>{capitalizeFirstLetter(key)}:</strong> {value}
-                </li>
-              ))}
-            </ul>
-          </div>
+    {/** Hero Section for Search Page */}
+      <h2 className='text-8xl -tracking-tight text-white font-semibold  text-center mb-10 mt-10'>Explore</h2>
+      <div className='flex justify-center items-center mt-5 px-4 sm:px-0'>
+        <div className='relative w-full max-w-lg'>
+   <form onSubmit={handleSubmission}>
+          <input 
+            type="text" 
+            placeholder="Search..." // Added placeholder for better UX
+            className='w-full bg-gray-400 bg-opacity-20 border border-white rounded-lg p-2 text-white pr-24 sm:pr-32' 
+            value={search}
+            onChange={(e) => handleSearch(e)}
+          />
+          <button 
+            className="absolute right-0.5 top-1/2 transform -translate-y-1/2 p-2 rounded-lg bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 text-white hover:shadow-lg " onClick={handleSearch}>
+            Search
+          </button>
+          </form>
         </div>
-      )}
-    </div>
+      </div>
+
+      <FigureCard figures={figures} search={search}/>
+
+
+    </>
   );
 }
 
-export default Search;
-
-
-
+export default Page;
