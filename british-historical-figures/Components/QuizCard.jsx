@@ -3,11 +3,15 @@ import useQuizData from '@/Custom Hooks/useQuizData';
 
 const QuizCard = () => {
   const { quizData, error, loading } = useQuizData();
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [showScore, setShowScore] = useState(false);
+
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+
   const [showModal, setShowModal] = useState(false);
+
   const [isCorrect, setIsCorrect] = useState(false);
+
   const [correctAnswer, setCorrectAnswer] = useState('');
 
   const handleSelection = (answerId) => {
@@ -16,20 +20,28 @@ const QuizCard = () => {
 
   const handleAnswerClick = () => {
     const selectedAnswer = currentQuestion.answers.find(answer => answer.id === selectedAnswerId);
+
     const correctAnswerObject = currentQuestion.answers.find(answer => answer.correct);
 
     setIsCorrect(selectedAnswer.correct);
+
     setShowModal(true);
+
     setCorrectAnswer(correctAnswerObject ? correctAnswerObject.answer : 'No correct answer found');
   };
 
   const handleNextQuestion = () => {
     setShowModal(false);
+
     const nextQuestionIndex = currentQuestionIndex + 1;
+
     if (nextQuestionIndex < quizData.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
+
       setSelectedAnswerId(null); // Reset selected answer for the next question
+
     } else {
+
       setShowScore(true);
     }
   };
@@ -40,19 +52,6 @@ const QuizCard = () => {
 
   if (error) {
     return <div className="text-white">Error: {error}</div>;
-  }
-
-  if (showScore) {
-    return (
-      <div className="flex justify-center align-items mt-20 text-white">
-        <div className="card bg-black w-1/2 h-full border border-white border-opacity-7 shadow-xl">
-          <div className="card-body items-center text-center">
-            <h2 className="text-white">Quiz Completed</h2>
-            <p className='text-white'>You've completed the quiz!</p>
-          </div>
-        </div>
-      </div>
-    );
   }
 
   const currentQuestion = quizData[currentQuestionIndex];

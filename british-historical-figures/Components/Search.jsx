@@ -2,7 +2,6 @@ import React from 'react'
 
 const Search = ({ search, handleSearch, handleQuery }) => {
 
-  
   return (
     <>
      {/** Hero Section for Search Page */}
