@@ -65,7 +65,7 @@ const useHistoricalFigures = (searchQuery) => {
     }
   };
 
-  console.log(figures);
+ 
   return figures;
 };
 

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
+    "json-server": "^0.17.4",
     "lucide-react": "^0.365.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.1.2",

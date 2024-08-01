@@ -30,6 +30,7 @@ const Hero = () => {
           <div className="relative animate-bob ">
             <Image
               src={hero}
+              priority={true}
               width={400}
               alt="picture of several historical figures"
               className="rounded-md border-white border relative mt-6 border-opacity-20"
