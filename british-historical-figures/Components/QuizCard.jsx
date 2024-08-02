@@ -1,53 +1,62 @@
+"use client"
 import React, { useState } from 'react';
 import useQuizData from '@/Custom Hooks/useQuizData';
+import QuizModal from './QuizModal';
 
 const QuizCard = () => {
+  // data from quiz is stored. Alongside error and loading state
   const { quizData, error, loading } = useQuizData();
-
+// state of the current question being shown  - user can press next
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
+//state of clicking button to be highlighted when selected
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
-
+// state holding modal to tell user if answer is incorrect/correct.
   const [showModal, setShowModal] = useState(false);
-
+// state that find the correct answer in data.
   const [isCorrect, setIsCorrect] = useState(false);
-
+// storing the correct answer to display if the user select the wrong answer
   const [correctAnswer, setCorrectAnswer] = useState('');
 
+  // This function passed on the answerId of the answer been clicked. It will then specifically select that button for the styling changes to be added to 
+  // so the user can know what they have clicked on. 
   const handleSelection = (answerId) => {
     setSelectedAnswerId(answerId);
   };
 
+  // takes the selected answer and goes through the states
   const handleAnswerClick = () => {
+    // selectedAnswer stores the current question and goes through the answer array and find the answer we have clicked alongside its id. 
     const selectedAnswer = currentQuestion.answers.find(answer => answer.id === selectedAnswerId);
-
+    
+    // this store the correct answer. It finds the answer and check if correct key holds true/false. In the case of true, the answer is correct. 
     const correctAnswerObject = currentQuestion.answers.find(answer => answer.correct);
-
+    
+    // function check if the selected answer is correct (true/false).
     setIsCorrect(selectedAnswer.correct);
-
+    
+    // opens the modal when answer has been submitted.
     setShowModal(true);
-
+    
+    // function holds the correct answer if the user answers incorrectly, the correct answer will be displayed in the modal/
     setCorrectAnswer(correctAnswerObject ? correctAnswerObject.answer : 'No correct answer found');
   };
 
+  // handles the state for the next question 
   const handleNextQuestion = () => {
     setShowModal(false);
-
+   // moves the index to change to the next question
     const nextQuestionIndex = currentQuestionIndex + 1;
-
+   // This means as long as the data does not exceed the length/end of the array, it will continue
     if (nextQuestionIndex < quizData.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
-
+   // Resets the selection of answers
       setSelectedAnswerId(null); // Reset selected answer for the next question
 
-    } else {
-
-      setShowScore(true);
-    }
+    } 
   };
 
   if (loading) {
-    return <div className="text-white">Loading...</div>;
+    return <h2 className="text-white text-center flex justify-center items-center mt-20">Loading...</h2>;
   }
 
   if (error) {
@@ -85,20 +94,7 @@ const QuizCard = () => {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
-          <div className="bg-white p-8 rounded shadow-lg text-center">
-            <h2 className="text-black">{isCorrect ? 'Correct!' : 'Incorrect!'}</h2>
-            {!isCorrect && (
-              <p className="text-black mt-2">The correct answer is: {correctAnswer}</p>
-            )}
-            <button
-              className="mt-4 bg-blue-500 text-white p-2 rounded"
-              onClick={handleNextQuestion}
-            >
-              Next
-            </button>
-          </div>
-        </div>
+      <QuizModal isCorrect={isCorrect} handleNextQuestion={handleNextQuestion} correctAnswer={correctAnswer} />
       )}
     </section>
   );
