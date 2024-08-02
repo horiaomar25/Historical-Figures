@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Search = ({ search, handleSearch, handleQuery, loading }) => {
+const Search = ({ search, handleSearch, handleQuery}) => {
 
  
   return (

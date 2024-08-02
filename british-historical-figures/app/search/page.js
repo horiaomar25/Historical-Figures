@@ -31,9 +31,9 @@ const Page = () => {
         search={search}
         handleSearch={handleSearch}
         handleQuery={handleQuery}
-        loading={loading} />
+         />
 
-      <FigureCard figures={figures} />
+      <FigureCard figures={figures} loading={loading} />
 
 
     </>
