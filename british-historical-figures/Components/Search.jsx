@@ -2,12 +2,7 @@ import React from 'react'
 
 const Search = ({ search, handleSearch, handleQuery, loading }) => {
 
-  if (loading) {
-
-    return <h2 className="text-white text-center flex justify-center items-center mt-20">Loading...</h2>;
-
-
-  }
+ 
   return (
     <>
       {/** Hero Section for Search Page */}
