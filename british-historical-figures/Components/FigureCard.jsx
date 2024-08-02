@@ -3,8 +3,12 @@ import NoImage from '../public/no-image.png';
 import InformationCard from './InformationCard';
 import Image from 'next/image';
 
-const FigureCard = ({ figures }) => {
+const FigureCard = ({ figures, loading }) => {
   const [selectedFigure, setSelectedFigure] = useState(null);
+
+  if(loading){
+    <h2 className='text-white text-center'>Loading</h2>
+  }
 
  
   return (
