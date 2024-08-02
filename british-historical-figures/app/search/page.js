@@ -9,7 +9,7 @@ const Page = () => {
 
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState('');
-  const figures = useHistoricalFigures(query);
+  const {figures, loading} = useHistoricalFigures(query);
 
   const handleSearch = (e) => {
     setSearch(e.target.value); // updates the search from the input
@@ -30,7 +30,8 @@ const Page = () => {
       <Search
         search={search}
         handleSearch={handleSearch}
-        handleQuery={handleQuery} />
+        handleQuery={handleQuery}
+        loading={loading} />
 
       <FigureCard figures={figures} />
 

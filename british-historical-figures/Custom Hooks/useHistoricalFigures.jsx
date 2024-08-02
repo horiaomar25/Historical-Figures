@@ -5,6 +5,7 @@ import NoImage from '../public/no-image.png';
 const useHistoricalFigures = (searchQuery) => {
   // State to store fetched figures
   const [figures, setFigures] = useState([]);
+  const [loading, setLoading] = useState(true);
   
   let defaultImageUrl = NoImage;
 
@@ -62,11 +63,13 @@ const useHistoricalFigures = (searchQuery) => {
     } catch (error) {
       console.error('Error fetching Wikipedia image and page URL:', error);
       return { wikipediaImageUrl: defaultImageUrl, wikipediaPageUrl: null };
+    } finally {
+      setLoading(false);
     }
   };
 
  
-  return figures;
+  return {figures, loading};
 };
 
 export default useHistoricalFigures;
