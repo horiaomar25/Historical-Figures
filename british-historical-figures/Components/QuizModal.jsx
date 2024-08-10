@@ -9,7 +9,7 @@ const QuizModal = ({ isCorrect, handleNextQuestion, correctAnswer}) => {
               <p className="text-white mt-2">The correct answer is: {correctAnswer}</p>
             )}
             <button
-              className="mt-4 bg-blue-500 text-white p-2 rounded"
+              className="mt-4 bg-blue-500 text-white p-2 rounded w-1/2"
               onClick={handleNextQuestion}
             >
               Next

@@ -16,6 +16,7 @@ const QuizCard = () => {
   const [isCorrect, setIsCorrect] = useState(false);
 // storing the correct answer to display if the user select the wrong answer
   const [correctAnswer, setCorrectAnswer] = useState('');
+  const [isQuizFinished, setIsQuizFinished] = useState(false);
 
   // This function passed on the answerId of the answer been clicked. It will then specifically select that button for the styling changes to be added to 
   // so the user can know what they have clicked on. 
@@ -52,7 +53,18 @@ const QuizCard = () => {
    // Resets the selection of answers
       setSelectedAnswerId(null); // Reset selected answer for the next question
 
-    } 
+    } else {
+      setIsQuizFinished(true);
+    }
+  };
+
+  const restartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedAnswerId(null);
+    setShowModal(false);
+    setIsCorrect(false);
+    setCorrectAnswer('');
+    setIsQuizFinished(false);
   };
 
   if (loading) {
@@ -67,34 +79,59 @@ const QuizCard = () => {
 
   return (
     <section className="flex justify-center align-items mt-20">
-      <div className="card bg-black w-1/2 h-full border border-white border-opacity-7 shadow-xl mb-4">
-        <div className="card-body items-center text-center">
-          <h2 className="text-white">{currentQuestion.question}</h2>
-          <div className="card-actions flex flex-col space-y-2 mt-4">
-            {currentQuestion.answers.map((answer) => (
+      {isQuizFinished ? (
+        <div className="bg-black p-8 rounded shadow-lg flex flex-col justify-center items-center border border-white border-opacity-10 w-1/2 h-1/2">
+          <h2 className="text-white text-center">Finished Quiz</h2>
+          <button
+            className="mt-4 bg-blue-500 text-white p-2 rounded w-1/2"
+            onClick={restartQuiz}
+          >
+            Restart Quiz
+          </button>
+        </div>
+      ) : (
+        <div className="card bg-black w-1/2 h-full border border-white border-opacity-7 shadow-xl mb-4">
+          <div className="card-body items-center text-center">
+            <h2 className="text-white">{currentQuestion.question}</h2>
+            <div className="card-actions flex flex-col space-y-2 mt-4">
+              {currentQuestion.answers.map((answer) => (
+                <button
+                  key={answer.id}
+                  className={`border border-gray-300 text-white w-80 p-3 rounded-lg ${
+                    selectedAnswerId === answer.id ? 'bg-blue-500' : ''
+                  }`}
+                  onClick={() => handleSelection(answer.id)}
+                >
+                  {answer.answer}
+                </button>
+              ))}
               <button
-                key={answer.id}
-                className={`border border-gray-300 text-white w-80 p-3 rounded-lg ${
-                  selectedAnswerId === answer.id ? 'bg-blue-500' : ''
-                }`}
-                onClick={() => handleSelection(answer.id)}
+                className='bg-blue-500 bg-opacity-15 text-white p-2 rounded-lg w-80'
+                onClick={handleAnswerClick}
+                disabled={selectedAnswerId === null}
               >
-                {answer.answer}
+                Submit
               </button>
-            ))}
-            <button
-              className='bg-blue-500 bg-opacity-15 text-white p-2 rounded-lg w-80'
-              onClick={handleAnswerClick}
-              disabled={selectedAnswerId === null}
-            >
-              Submit
-            </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
-      {showModal && (
-      <QuizModal isCorrect={isCorrect} handleNextQuestion={handleNextQuestion} correctAnswer={correctAnswer} />
+      {showModal && !isQuizFinished && (
+        <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="bg-black p-8 rounded shadow-lg flex flex-col justify-center items-center border border-white border-opacity-10 w-1/2 h-1/2">
+            <h2 className="text-white">{isCorrect ? 'Correct!' : 'Incorrect!'}</h2>
+            {!isCorrect && (
+              <p className="text-white mt-2">The correct answer is: {correctAnswer}</p>
+            )}
+            <button
+              className="mt-4 bg-blue-500 text-white p-2 rounded w-1/2"
+              onClick={handleNextQuestion}
+            >
+              Next
+            </button>
+          </div>
+        </section>
       )}
     </section>
   );
