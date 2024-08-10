@@ -3,12 +3,10 @@ import NoImage from '../public/no-image.png';
 import InformationCard from './InformationCard';
 import Image from 'next/image';
 
-const FigureCard = ({ figures, loading }) => {
+const FigureCard = ({ figures}) => {
   const [selectedFigure, setSelectedFigure] = useState(null);
 
-  if(loading){
-    <h2 className='text-white text-center'>Loading</h2>
-  }
+  
 
  
   return (
@@ -21,7 +19,7 @@ const FigureCard = ({ figures, loading }) => {
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-10">
         {figures.map((figure, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div key={index} className="flex flex-col items-center" data-testid="figure-card">
             <div className="w-48 h-48 relative rounded-lg">
               <Image
                 src={figure.wikipediaImageUrl || NoImage}
@@ -37,6 +35,7 @@ const FigureCard = ({ figures, loading }) => {
               <button 
                 className='text-white ml-2'
                 onClick={() => setSelectedFigure(figure)}
+                aria-label={`Open information for ${figure.name}`} 
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

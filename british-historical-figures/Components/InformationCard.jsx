@@ -6,7 +6,7 @@ const InformationCard = ({ figure, onClose }) => {
   const getValueOrDefault = (value, defaultValue = 'Not Known') => value ? value : defaultValue;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75" data-testid="information-card">
       <div className="bg-gray-800 p-5 rounded-lg relative md:w-2/3 lg:w-1/2 max-h-full overflow-auto">
         <button
           className="absolute top-3 right-3 text-white bg-red-500 hover:bg-red-700 rounded-full p-1"

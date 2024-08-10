@@ -8,7 +8,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <>
-      <div className="circlePosition w-[300px] h-[500px] bg-gradient-to-r from-sky-500 via-blue-600 to-blue-700 rounded-[100%] absolute z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[900px]"></div>
+      <div role="presentation" className="circlePosition w-[300px] h-[500px] bg-gradient-to-r from-sky-500 via-blue-600 to-blue-700 rounded-[100%] absolute z-1 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] blur-[900px]"></div>
       <section className="flex flex-col justify-center items-center relative">
         <h1 className="text-white text-7xl text-center font-bold mt-8  -tracking-tight">
           Historical{" "}
@@ -33,7 +33,7 @@ const Hero = () => {
               src={hero}
               priority={true}
               width={400}
-              alt="picture of several historical figures"
+              alt="Hero Image"
               className="rounded-md border-white border relative mt-6 border-opacity-20"
             />
             
