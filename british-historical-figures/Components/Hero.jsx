@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import hero from "../public/hero.gif";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -18,9 +19,9 @@ const Hero = () => {
         <p className="text-white text-center mt-5 text-2xl">
           Learn about History's most important figures
         </p>
-        <button className=" p-2 w-32 rounded-lg bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 hover:shadow-white-shadow mt-5 text-white">
+      <Link href="/search"> <button className=" p-2 w-32 rounded-lg bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 hover:shadow-white-shadow mt-5 text-white">
   Explore
-</button>
+</button></Link> 
 
 
 

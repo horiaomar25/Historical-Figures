@@ -1,5 +1,6 @@
 "use client"
 import React from "react";
+import Link from "next/link";
 
 
 const About = () => {
@@ -15,7 +16,9 @@ const About = () => {
         <p className="font-Inter text-white mt-4">
           Test your knowledge with this quiz
         </p>
-        <button className="border border-black w-1/2 rounded-lg p-2 "></button>
+      <Link href="/quiz"><button className=" p-2 w-32 rounded-lg bg-gradient-to-r from-sky-500 via-blue-500 to-blue-600 hover:shadow-white-shadow mt-5 text-white">
+  Go to quiz
+</button></Link>  
       </div>
 
      
