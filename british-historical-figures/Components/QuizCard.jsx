@@ -1,7 +1,8 @@
 "use client"
 import React, { useState } from 'react';
-import useQuizData from '@/Custom Hooks/useQuizData';
+import useQuizData from '../CustomHooks/useQuizData';
 import QuizModal from './QuizModal';
+
 
 const QuizCard = () => {
   // data from quiz is stored. Alongside error and loading state

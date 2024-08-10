@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import FigureCard from '@/Components/FigureCard';
-import useHistoricalFigures from '@/Custom Hooks/useHistoricalFigures';
+import useHistoricalFigures from '@/CustomHooks/useHistoricalFigures';
 import Search from '@/Components/Search';
 
 
