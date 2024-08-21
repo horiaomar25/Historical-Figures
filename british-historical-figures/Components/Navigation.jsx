@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
 
@@ -20,12 +20,7 @@ const Navigation = () => {
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost lg:hidden"
-            onClick={toggleMenu}
-          >
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" onClick={toggleMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-white"
@@ -42,24 +37,22 @@ const Navigation = () => {
             </svg>
           </div>
 
-          {/** Mobile Navigation */}
+  {/** Mobile Navigation */}
           {menuOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50">
-              <button
-                onClick={closeMenu}
-                className="absolute top-4 right-4 text-white text-5xl font-bold"
-              >
+              
+              <ul className="menu menu-sm dropdown-content bg-black rounded-box mt-3 p-2 shadow h-full w-full flex flex-col justify-center items-center">
+                <button onClick={closeMenu} className="absolute top-4 right-4 text-white text-5xl font-bold">
                 &times;
               </button>
-              <ul className="menu menu-sm dropdown-content bg-black rounded-box mt-3 p-2 shadow h-full w-full flex flex-col justify-center items-center">
-                <li className="text-white text-2xl font-semibold" onClick={closeMenu}>
-                  <Link href="/">Home</Link>
+              <li className='text-white text-8xl font-semibold' onClick={closeMenu}>
+                  <Link href="/" className='text-2xl'>Home</Link>
                 </li>
-                <li className="text-white text-2xl font-semibold mt-8" onClick={closeMenu}>
-                  <Link href="/search">Search</Link>
+                <li className='text-white font-semibold mt-8' onClick={closeMenu}>
+                  <Link href="/search" className='text-2xl' >Search</Link>
                 </li>
-                <li className="text-white text-2xl font-semibold mt-8" onClick={closeMenu}>
-                  <Link href="/quiz">Quiz</Link>
+                <li className='text-white text-4xl font-semibold mt-8' onClick={closeMenu}>
+                  <Link href="/quiz" className='text-2xl'>Quiz</Link>
                 </li>
               </ul>
             </div>
@@ -67,21 +60,13 @@ const Navigation = () => {
         </div>
 
         {/** Desktop Navigation */}
-        <a className="btn btn-ghost text-4xl text-white">
-          H<span className="text-blue-600">F</span>
-        </a>
+        <a className="btn btn-ghost text-4xl text-white">H<span className='text-blue-600'>F</span></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li className="text-white text-xl font-semibold hover:text-blue-600">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="text-white text-xl font-semibold hover:text-blue-600">
-            <Link href="/search">Search</Link>
-          </li>
-          <li className="text-white text-xl font-semibold hover:text-blue-600">
-            <Link href="/quiz">Quiz</Link>
-          </li>
+          <li className='text-white text-xl font-semibold hover:text-blue-600'><Link href="/">Home</Link></li>
+          <li className='text-white text-xl font-semibold hover:text-blue-600'><Link href="/search">Search</Link></li>
+          <li className='text-white text-xl font-semibold hover:text-blue-600'><Link href="/quiz">Quiz</Link></li>
         </ul>
       </div>
       <div className="navbar-end">
