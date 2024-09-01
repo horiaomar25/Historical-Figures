@@ -46,14 +46,9 @@ To set up the project locally, follow these steps:
     npm install
     ```
 
-3. **Set up environment variables**:
-    Create a `.env` file in the root directory and add your API keys:
-    ```env
-    HISTORICAL_FIGURES_API_KEY=your_historical_figures_api_key
-    WIKI_API_KEY=your_wiki_api_key
-    ```
 
-4. **Start the development server**:
+
+3. **Start the development server**:
     ```bash
     npm start
     ```
