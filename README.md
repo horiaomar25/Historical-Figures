@@ -59,25 +59,6 @@ To set up the project locally, follow these steps:
 2. Use the search bar to find information about historical figures.
 3. Click on a figure from the search results to view detailed information.
 
-## Contributing
-
-Contributions are welcome! To contribute to this project, follow these steps:
-
-1. **Fork the repository**.
-2. **Create a new branch**:
-    ```bash
-    git checkout -b feature/your-feature-name
-    ```
-3. **Make your changes**.
-4. **Commit your changes**:
-    ```bash
-    git commit -m 'Add some feature'
-    ```
-5. **Push to the branch**:
-    ```bash
-    git push origin feature/your-feature-name
-    ```
-6. **Open a pull request**.
 
 ## License
 
